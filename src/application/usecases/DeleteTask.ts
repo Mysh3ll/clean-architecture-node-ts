@@ -6,6 +6,6 @@ export class DeleteTask {
 
     async execute(id: number): Promise<Task> {
         const task: Task = await this.taskRepository.find(id);
-        return this.taskRepository.delete(task);
+        return await this.taskRepository.delete(task) as Task;
     }
 }
