@@ -42,12 +42,26 @@ export class Task {
         return this._createdAt;
     }
 
+    getUTCCreatedAt(): string {
+        if (this._createdAt) {
+            return this._createdAt.utc().format('YYYY-MM-DD HH:mm:ss')
+        }
+        return null
+    }
+
     set createdAt(value: moment.Moment) {
         this._createdAt = value;
     }
 
     get updatedAt(): moment.Moment {
         return this._updatedAt;
+    }
+
+    getUTCUpdatedAt(): string {
+        if (this._updatedAt) {
+            return this._updatedAt.utc().format('YYYY-MM-DD HH:mm:ss')
+        }
+        return null
     }
 
     set updatedAt(value: moment.Moment) {
