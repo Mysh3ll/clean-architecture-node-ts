@@ -4,8 +4,8 @@ import { ITaskRepository } from '../repositories/ITaskRepository';
 export class CreateTask {
     constructor(private taskRepository: ITaskRepository) {};
 
-    execute(title: string, description: string) {
-        const task = new Task(title, description);
+    execute(title: string, description: string): Promise<Task> {
+        const task: Task = new Task(title, description);
         return this.taskRepository.persist(task);
     }
 }
